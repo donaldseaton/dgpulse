@@ -17,7 +17,9 @@ SELECT
     customer.id AS account_id,
     conversion_action.attribution_model_settings.attribution_model AS dda_conversion_action,
     conversion_action.name AS conversion_action_name,
-    conversion_action.id AS conversion_action_id
+    conversion_action.id AS conversion_action_id,
+    conversion_action.category AS conversion_action_category,
+    metrics.all_conversions AS all_conversions
 FROM
     conversion_action
 WHERE
