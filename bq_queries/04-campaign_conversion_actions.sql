@@ -56,7 +56,9 @@ SELECT DISTINCT
   IF(C.ecl_enabled = true,
     'ENABLED', 'DISABLED') AS ecl_status,
   IF(ADDA.dda_conversion_action_count > 0,
-    'ENABLED', 'DISABLED') AS dda_conversion_action_status
+    'ENABLED', 'DISABLED') AS dda_conversion_action_status,
+  ADDA.conversion_action_category,
+  ADDA.all_conversions
 FROM `{bq_dataset}.ocid_mapping` AS OCID
 INNER JOIN `{bq_dataset}.campaign_settings` AS CC
   ON CC.account_id = OCID.customer_id
